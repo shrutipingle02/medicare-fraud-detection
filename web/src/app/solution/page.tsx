@@ -33,7 +33,7 @@ export default function SolutionPage() {
       <Section>
         <div className="grid gap-5 md:grid-cols-2">
           {[
-            { icon: <ListOrdered className="h-6 w-6" />, t: "Prioritised, not exhaustive", d: "We optimise the density of real fraud in the top few percent, the slice an investigator can actually review, rather than chasing every case." },
+            { icon: <ListOrdered className="h-6 w-6" />, t: "Prioritised, not exhaustive", d: "The ranker optimises the density of real fraud in the top few percent, the slice an investigator can actually review, rather than chasing every case." },
             { icon: <Users className="h-6 w-6" />, t: "Peer-aware", d: "Each provider is judged against true peers in the same specialty and year, so volume alone never triggers a flag." },
             { icon: <ScrollText className="h-6 w-6" />, t: "Explained by design", d: "Every flag ships with plain-language reasons drawn from peer deviations, so a human can judge it in seconds." },
             { icon: <Gauge className="h-6 w-6" />, t: "Budget-shaped", d: "Tune the review budget (top 1, 5, or 10 percent) and the worklist adapts to the capacity a team actually has." },

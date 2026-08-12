@@ -76,7 +76,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.15 }}
             className="font-heading text-6xl font-extrabold leading-[1.02] tracking-tight text-washi drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)] md:text-8xl"
           >
-            We hunt the fraud
+            Hunting the fraud
             <br />
             that{" "}
             <AnimatedTextCycle
@@ -177,14 +177,14 @@ export default function Home() {
         <Reveal>
           <Kicker icon={<ListOrdered className="h-4 w-4" />}>THE IDEA</Kicker>
           <h2 className="section-title">
-            We do not try to catch all fraud. We decide{" "}
+            The goal is not to catch all fraud. It is to decide{" "}
             <span className="text-crimson-bright">who to check first.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="section-lead">
             Picture an investigator with time to review only the top few providers this
-            week. Our job is to make that short list as dense with real fraud as
+            week. The job is to make that short list as dense with real fraud as
             possible, like a master archer taking one perfect shot instead of firing
             blindly into the dark.
           </p>
@@ -202,12 +202,12 @@ export default function Home() {
             {
               icon: <Database className="h-6 w-6" />,
               t: "1. Gather real data",
-              d: "We use the government's real Medicare billing records, paired with the official public list of providers already banned for fraud (the LEIE).",
+              d: "Built on the government's real Medicare billing records, paired with the official public list of providers already banned for fraud (the LEIE).",
             },
             {
               icon: <Users className="h-6 w-6" />,
               t: "2. Compare true peers",
-              d: "Billing a lot is not fraud. We compare each provider only to their real peers, a cardiologist against cardiologists, never against dentists.",
+              d: "Billing a lot is not fraud. Each provider is compared only to their real peers, a cardiologist against cardiologists, never against dentists.",
             },
             {
               icon: <ListOrdered className="h-6 w-6" />,
@@ -247,9 +247,9 @@ export default function Home() {
       {/* ===== BREAKTHROUGH ===== */}
       <Section>
         <Reveal>
-          <Kicker icon={<Ghost className="h-4 w-4" />}>OUR BREAKTHROUGH</Kicker>
+          <Kicker icon={<Ghost className="h-4 w-4" />}>THE BREAKTHROUGH</Kicker>
           <h2 className="section-title">
-            We stopped judging a provider on a single{" "}
+            A provider is no longer judged on a single{" "}
             <span className="text-crimson-bright">snapshot.</span>
           </h2>
         </Reveal>
@@ -257,7 +257,7 @@ export default function Home() {
           <p className="section-lead">
             A fraudster and an honest doctor can look alike in one year. Their{" "}
             <span className="text-gold">trajectory</span> gives them away: how their
-            billing trends, swings, and jumps over time. We add leakage-safe
+            billing trends, swings, and jumps over time. The model adds leakage-safe
             "as-of" trajectory features, using only each provider&apos;s own past, never
             the future. That nearly doubled the fraud caught in the critical top slice.
           </p>

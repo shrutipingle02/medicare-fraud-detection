@@ -80,7 +80,7 @@ export default function AtlasPage() {
             Where the hidden fraud hides.
           </h1>
           <p className="mt-1.5 text-xs leading-relaxed text-ash">
-            States rise and redden with the volume of high-risk providers our
+            States rise and redden with the volume of high-risk providers the
             engine surfaced. Hover to inspect, click to pin.
           </p>
         </Panel>

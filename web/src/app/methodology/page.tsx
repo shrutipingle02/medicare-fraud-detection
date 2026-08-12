@@ -19,11 +19,11 @@ export default function MethodologyPage() {
         <div className="grid gap-5 md:grid-cols-2">
           {[
             { icon: <Database className="h-6 w-6" />, t: "1. Data", d: "CMS Medicare Part B 'by Provider' (2019 to 2023) joined to the OIG LEIE exclusion list on NPI. Pooled into a 6.0M provider-year panel with 473 known fraud providers." },
-            { icon: <Tags className="h-6 w-6" />, t: "2. Labels", d: "A provider-year is labelled fraud if the NPI appears in the LEIE for a fraud-related exclusion, with temporal gating so we capture pre-exclusion billing." },
+            { icon: <Tags className="h-6 w-6" />, t: "2. Labels", d: "A provider-year is labelled fraud if the NPI appears in the LEIE for a fraud-related exclusion, with temporal gating so the panel captures pre-exclusion billing." },
             { icon: <Layers className="h-6 w-6" />, t: "3. Features", d: "Absolute behaviour ratios plus peer-relative position: z-score, percentile, and median ratio within each specialty-and-year peer group. The peer layer is what makes it work." },
             { icon: <Cpu className="h-6 w-6" />, t: "4. Models", d: "Logistic regression, gradient boosting, and XGBoost, with random undersampling to handle the extreme imbalance." },
             { icon: <Target className="h-6 w-6" />, t: "5. Evaluation", d: "Provider-grouped train/test split (no NPI on both sides). Headline metric is precision at top-k, the metric that matches the real decision." },
-            { icon: <Ghost className="h-6 w-6" />, t: "6. PU learning", d: "We treat unlabelled providers as unknown, not innocent, and use PU bagging. Against a matched baseline it wins 4 of 5 random splits, a consistent lift in top-k recall." },
+            { icon: <Ghost className="h-6 w-6" />, t: "6. PU learning", d: "Unlabelled providers are treated as unknown, not innocent, using PU bagging. Against a matched baseline it wins 4 of 5 random splits, a consistent lift in top-k recall." },
           ].map((s, i) => (
             <Reveal key={i} delay={0.06 * i}>
               <Lantern className="flex gap-4">
