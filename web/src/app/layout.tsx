@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Shippori_Mincho } from "next/font/google";
 import "./globals.css";
-import { FallingLeaves } from "@/components/falling-leaves";
 import { Grain } from "@/components/scenery";
 import { SiteNav } from "@/components/blocks";
 import Footer4Col from "@/components/ui/footer-column";
@@ -39,7 +38,6 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${mincho.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col text-washi">
-        <FallingLeaves />
         <Grain />
         <SiteNav />
         <div className="flex-1">{children}</div>
