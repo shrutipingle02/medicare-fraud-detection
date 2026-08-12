@@ -6,7 +6,7 @@ const data = {
   linkedinLink:
     "https://www.linkedin.com/in/shruti-pingle-aa8034196/",
   company: {
-    name: "Provider Fraud Risk Explorer",
+    name: "Medicare Fraud Detection",
     description:
       "A watchful ranker that surfaces the Medicare providers most likely committing fraud, and explains why. Built on real US government data.",
   },

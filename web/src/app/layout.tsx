@@ -22,7 +22,7 @@ const mincho = Shippori_Mincho({
 });
 
 export const metadata: Metadata = {
-  title: "Provider Fraud Risk Explorer",
+  title: "Medicare Fraud Detection",
   description:
     "A watchful ranker that surfaces the providers most likely committing Medicare fraud, and explains why.",
 };

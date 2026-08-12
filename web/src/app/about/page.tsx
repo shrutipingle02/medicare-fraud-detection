@@ -11,13 +11,13 @@ export default function AboutPage() {
       <PageHeader
         kanji="仁"
         eyebrow="ABOUT"
-        title="Two individuals hunting fraud in the open."
+        title="Hunting fraud in the open."
         lead="A capstone built on real government data, published research, and a willingness to be honest about what works and what does not."
       />
 
       <Section>
         <Reveal>
-          <Kicker>THE TEAM</Kicker>
+          <Kicker>BUILT BY</Kicker>
         </Reveal>
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {([
