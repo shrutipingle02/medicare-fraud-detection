@@ -1,7 +1,7 @@
 """
 Leakage diagnostic for the temporal trajectory features.
 
-The +temporal lift (recall@1% 0.17 -> 0.31) is large, so we check whether it is a
+The +temporal lift (recall@1% 0.17 -> 0.31) is large, so this checks whether it is a
 real behavioural signal or a panel-position artifact. The fraud label is gated
 year <= excl_year, so positives concentrate in certain years; traj_years (years
 billed so far) could separate classes for the WRONG reason.
@@ -9,7 +9,7 @@ billed so far) could separate classes for the WRONG reason.
 Reports:
   1. class separation of year / traj_years (medians + AUC of each ALONE).
   2. gradient-boosting feature importance with temporal features in.
-  3. how much of the lift survives if we DROP the position-like features
+  3. how much of the lift survives if the position-like features are DROPPED
      (traj_years and every *_traj_* ) - i.e. keep only behavioural trajectory
      shape that is genuinely as-of.
 

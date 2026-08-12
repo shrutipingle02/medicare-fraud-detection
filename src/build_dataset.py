@@ -12,7 +12,7 @@ What it does:
 
 Labeling note (read before trusting the target):
   The LEIE has no "fraud" flag; exclusions are coded by statutory authority in the
-  EXCLTYPE column. We treat the codes below as fraud-related. License-only
+  EXCLTYPE column. The codes below are treated as fraud-related. License-only
   revocations (1128b4) are the largest bucket and are NOT inherently fraud, so they
   are EXCLUDED from `fraud_label` by default but still captured by `excluded_any`.
   Adjust FRAUD_EXCLTYPES if your definition differs.
@@ -43,7 +43,7 @@ FRAUD_EXCLTYPES = {
     "1128b8",  # Entity controlled by a sanctioned (fraud-excluded) individual
 }
 
-# CMS column -> friendly name. We keep the identifiers, geography/specialty needed
+# CMS column -> friendly name. Keeps the identifiers, geography/specialty needed
 # for peer grouping, and the core utilization/financial aggregates.
 CMS_KEEP = {
     "Rndrng_NPI": "npi",
@@ -132,7 +132,7 @@ def build_panel(years: list[int], temporal: bool = True) -> Path:
 
     A provider-year (npi, year) is labeled fraud if the NPI has a fraud-related
     LEIE exclusion. With temporal=True (default) a year is only labeled fraud if it
-    falls at or before the exclusion year, so we capture pre-exclusion billing and
+    falls at or before the exclusion year, so this captures pre-exclusion billing and
     do not label years after a provider was already barred.
     """
     leie_path = RAW_DIR / "LEIE_exclusions.csv"

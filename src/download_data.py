@@ -5,7 +5,7 @@ Sources (both public, no PHI):
   1. CMS Medicare Physician & Other Practitioners - by Provider (Part B).
      One row per provider (NPI) per year, with billing/utilization aggregates.
   2. OIG LEIE (List of Excluded Individuals/Entities).
-     Providers barred from federal health programs; the source of our fraud labels.
+     Providers barred from federal health programs; the source of the fraud labels.
 
 The raw files are large and are NOT committed to git (see .gitignore). Run this
 script to (re)create data/raw locally.

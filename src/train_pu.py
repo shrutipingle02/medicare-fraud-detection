@@ -1,7 +1,7 @@
 """
 Positive-Unlabeled (PU) learning experiment: PU bagging vs the supervised baseline.
 
-Why: the LEIE only lists fraud that got CAUGHT, so our "negative" providers are
+Why: the LEIE only lists fraud that got CAUGHT, so the "negative" providers are
 really UNLABELED (an unknown share are uncaught fraud). The standard Medicare-fraud
 literature treats this as ordinary supervised classification, which is the wrong
 learning setting. This experiment treats it as PU learning.
@@ -17,7 +17,7 @@ only difference is single-draw (the baseline style) vs bagged-and-averaged (PU):
   * Arm A: ONE draw of pseudo-negatives, one GradientBoosting fit (supervised baseline).
   * Arm B: N_BAGS draws, averaged (PU bagging).
 
-Base learner is the shared gradient-boosting pipeline, our champion model type.
+Base learner is the shared gradient-boosting pipeline, the champion model type.
 
 Usage:
     python src/train_pu.py \

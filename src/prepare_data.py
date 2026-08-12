@@ -27,7 +27,7 @@ MONEY_COLS = [
 ]
 COUNT_COLS = ["tot_hcpcs_codes", "tot_beneficiaries", "tot_services"]
 # CMS suppresses providers with fewer than 11 beneficiaries; below this a provider
-# cannot be characterized reliably, so we drop them (PROJECT.md Phase A).
+# cannot be characterized reliably, so they are dropped (PROJECT.md Phase A).
 MIN_BENES = 11
 
 

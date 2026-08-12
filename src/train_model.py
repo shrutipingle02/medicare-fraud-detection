@@ -2,13 +2,13 @@
 Supervised fraud model, built on scikit-learn.
 
 Models are plain scikit-learn pipelines. Two things sit outside what the library
-gives you out of the box, so we add them here because they are the heart of this
+gives you out of the box, so they are added here because they are the heart of this
 problem:
 
   * Imbalance handling - random undersampling (RUS) of the majority class on the
     TRAIN split only, per Johnson & Khoshgoftaar (2019).
   * Top-k precision evaluation under class rarity, per Bauder & Khoshgoftaar
-    (2019) - we rank the held-out providers by fraud probability and measure how
+    (2019) - the held-out providers are ranked by fraud probability, measuring how
     dense the top 1 / 5 / 10 percent is with real fraud.
 
 The split is provider-grouped (GroupShuffleSplit on NPI) so the same provider's
@@ -41,8 +41,8 @@ PROC_DIR = ROOT / "data" / "processed"
 MODEL_DIR = ROOT / "models"
 
 TARGET = "fraud_label"
-# Columns that are identifiers, leak the label, or are categorical strings we do
-# not feed to the linear/tree baseline (the specialty signal is already encoded
+# Columns that are identifiers, leak the label, or are categorical strings not fed
+# to the linear/tree baseline (the specialty signal is already encoded
 # in the peer-relative features).
 DROP = {
     TARGET, "excluded_any", "excl_year",          # label leakage

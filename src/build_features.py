@@ -1,12 +1,12 @@
 """
 Feature engineering: Layer 2 (peer-relative position).
 
-PROJECT.md calls this "the layer that makes it work". For each provider we already
-have absolute behavior (Layer 1, from prepare_data.py). Here we position each
+PROJECT.md calls this "the layer that makes it work". Each provider already has
+absolute behavior (Layer 1, from prepare_data.py). Here each provider is positioned
 provider against its PEERS - providers of the same specialty in the same year - so
 that "bills a lot" becomes "bills 4 standard deviations above comparable providers".
 
-For every base metric we add, within each (provider_type, year) peer group:
+For every base metric, within each (provider_type, year) peer group:
   * <metric>_z    : z-score      (x - peer_mean) / peer_std
   * <metric>_pct  : percentile rank in the peer group (0..1)
   * <metric>_pmr  : ratio to the peer median (x / peer_median)

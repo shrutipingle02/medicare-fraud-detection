@@ -2,7 +2,7 @@
 Temporal trajectory features (LEAKAGE-SAFE, as-of).
 
 The nnPU result showed neural sequence models lose to trees on this small-positive
-tabular problem. So instead of a neural RNN, we exploit the 2019 to 2023 panel by
+tabular problem. So instead of a neural RNN, this exploits the 2019 to 2023 panel by
 engineering provider TRAJECTORY features and adding them to the gradient-boosted PU
 model that is already winning.
 
@@ -11,7 +11,7 @@ that provider's own billing up to and including that year, never future years. T
 prevents look-ahead leakage (for example, a fraud provider's billing collapse AFTER
 exclusion must not inform an earlier year's prediction).
 
-For each provider-year, over that provider's years so far, for key metrics we add:
+For each provider-year, over that provider's years so far, for key metrics this adds:
   * _traj_slope : least-squares trend up to this year (ramping up or down?)
   * _traj_cv    : coefficient of variation up to this year (how erratic?)
   * _traj_jump  : largest year-over-year jump seen so far (sudden spikes)

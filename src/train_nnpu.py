@@ -1,7 +1,7 @@
 """
 nnPU: non-negative Positive-Unlabeled learning (Kiryo et al., 2017), in PyTorch.
 
-This is the advanced, principled form of our breakthrough. Instead of the heuristic
+This is the advanced, principled form of the breakthrough. Instead of the heuristic
 PU bagging, nnPU trains a neural network directly with the non-negative PU risk
 estimator: it learns from positives + unlabeled with NO assumed negatives, and
 corrects the risk so it cannot go negative (which is what made earlier unbiased
