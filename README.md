@@ -1,4 +1,4 @@
-# Healthcare Provider Fraud Risk Explorer
+# Medicare Fraud Detection
 
 An end-to-end workflow that turns real Medicare billing data into a **ranked, explainable list of providers** most likely to be committing fraud, so a human investigator knows who to look at first and why.
 

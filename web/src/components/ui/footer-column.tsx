@@ -1,11 +1,10 @@
-import { Code2, ExternalLink, Mail, ScrollText } from "lucide-react";
+import { Code2, ExternalLink, ScrollText } from "lucide-react";
 import Link from "next/link";
 
 const data = {
   githubLink: "https://github.com/shrutipingle02/medicare-fraud-detection",
   linkedinLink:
     "https://www.linkedin.com/in/shruti-pingle-aa8034196/",
-  contact: { email: "shrutipingle02@gmail.com" },
   company: {
     name: "Provider Fraud Risk Explorer",
     description:
@@ -46,7 +45,6 @@ export default function Footer4Col() {
               {[
                 { icon: Code2, label: "GitHub", href: data.githubLink },
                 { icon: ExternalLink, label: "LinkedIn", href: data.linkedinLink },
-                { icon: Mail, label: "Email", href: `mailto:${data.contact.email}` },
               ].map(({ icon: Icon, label, href }) => (
                 <li key={label}>
                   <a
