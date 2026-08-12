@@ -4,41 +4,41 @@
 **Compiled by:** Shruti Pingle
 **Scope:** The foundational methods this repo directly implements (2018 to 2023), plus current frontier work (2024 to 2026) for the stretch goals, all grounding the design choices in PROJECT.md
 
-> This is the evidence base. Each thing we build maps to a real, published paper, and we credit the authors who established the method.
+> This is the evidence base. Each thing built here maps to a real, published paper, and credits the authors who established the method.
 
 ---
 
-## 0. Foundational methods we directly implement (and credit)
+## 0. Foundational methods directly implemented (and credited)
 
-Our actual pipeline (CMS Medicare Part B "by Provider" joined to the OIG LEIE on
+The pipeline (CMS Medicare Part B "by Provider" joined to the OIG LEIE on
 NPI, provider-level labeling, extreme class imbalance, top-k / class-rarity
 evaluation) follows the body of work from **Taghi M. Khoshgoftaar's group at
-Florida Atlantic University**. We are standing on their shoulders.
+Florida Atlantic University**. This work stands on their shoulders.
 
-| What we built | Paper we implement | Authors we credit |
+| What was built | Paper implemented | Authors credited |
 |---|---|---|
 | CMS Part B + LEIE NPI labeling, provider-level, LR baseline | *Big Data fraud detection using multiple Medicare data sources*, **J. Big Data** 5:29, 2018 | **Matthew Herland, Taghi M. Khoshgoftaar, Richard A. Bauder** |
-| Why we lead with top-k precision under class rarity (not accuracy) | *The effects of class rarity on the evaluation of supervised healthcare fraud detection models*, **J. Big Data** 6:21, 2019 | **Richard A. Bauder, Taghi M. Khoshgoftaar** |
+| Why top-k precision under class rarity leads (not accuracy) | *The effects of class rarity on the evaluation of supervised healthcare fraud detection models*, **J. Big Data** 6:21, 2019 | **Richard A. Bauder, Taghi M. Khoshgoftaar** |
 | Imbalance handling: random over/under-sampling (ROS / RUS / ROS-RUS), class weighting | *Medicare fraud detection using neural networks*, **J. Big Data** 6:63, 2019 | **Justin M. Johnson, Taghi M. Khoshgoftaar** |
 | Per-provider SHAP "why flagged" explanations | *Explainable machine learning models for Medicare fraud detection*, **J. Big Data** 10:154, 2023 | **John T. Hancock, Taghi M. Khoshgoftaar** |
 
 These four papers are why the project is shaped the way it is: the 99.97 / 0.03
 imbalance, the LEIE-as-labels construction, the top-k metric, and the mandatory
-explanations are all established results, not our invention.
+explanations are all established results, not an invention of this project.
 
 ## 1. The problem is large, and the literature agrees on the hard parts
 
 - **Scale:** An estimated **3 to 10 percent of US healthcare spending, roughly 300 billion dollars per year**, is lost to fraud. Source: systematic review, *Artificial Intelligence in Medicine*, 2025.
-- **The three recurring challenges** named across reviews: **class imbalance, scarce/incomplete labels, and interpretability**. Reviews explicitly recommend **explainable AI** as the top future direction. This is exactly why our design leads with top-k precision and mandatory explanations.
+- **The three recurring challenges** named across reviews: **class imbalance, scarce/incomplete labels, and interpretability**. Reviews explicitly recommend **explainable AI** as the top future direction. This is exactly why the design leads with top-k precision and mandatory explanations.
 
 ## 2. Where the field actually is (the survey view)
 
 - A 2025 *Journal of Big Data* review covers **22 techniques published Dec 2017 to Oct 2024**, grouping them into **supervised (deep learning, graph-based, meta-learning), unsupervised, and semi-supervised**. Graph-based and ensemble methods are highlighted as strong performers.
-- Takeaway: our **two-track (supervised + anomaly) plus graph plus LLM** stack is aligned with the current frontier, not a tutorial rehash.
+- Takeaway: the **two-track (supervised + anomaly) plus graph plus LLM** stack is aligned with the current frontier, not a tutorial rehash.
 
-## 3. Evidence for each cutting-edge feature we plan
+## 3. Evidence for each cutting-edge feature planned
 
-| Feature in our plan | Supporting paper | What it establishes |
+| Planned feature | Supporting paper | What it establishes |
 |---|---|---|
 | **Graph / GNN ring detection** | *Fraud detection and explanation in medical claims using GNN architectures*, Scientific Reports, 2025 | Models patients, providers, diagnoses, and services as a heterogeneous graph; GNNs detect fraud AND yield explanations |
 | **Heterogeneous graph learning** | *Multi-channel heterogeneous graph structure learning (MHGSL)*, Heliyon, 2024 (PMC11061682) | Multi-channel graph fusion captures complex provider-claim relationships, improving accuracy |
@@ -47,11 +47,11 @@ explanations are all established results, not our invention.
 | **Generative augmentation / red-team** | *An attack method for medical insurance claim fraud detection based on GANs*, arXiv:2506.19871, 2025 | Generative models both attack and augment medical-claims fraud detectors |
 | **Unsupervised anomaly detection** | *Unsupervised anomaly detection of healthcare providers using GANs*, PMC7134221 | Flags providers diverging from peers without any labels |
 
-## 4. What this means for our build
+## 4. What this means for the build
 
-1. **We are not guessing.** Graph neural networks, LLM investigation agents, and conformal uncertainty are precisely where 2025 to 2026 fraud research is heading.
+1. **This is not guesswork.** Graph neural networks, LLM investigation agents, and conformal uncertainty are precisely where 2025 to 2026 fraud research is heading.
 2. **Explainability is the consensus priority**, which validates making per-provider explanations non-negotiable.
-3. **Class imbalance and label scarcity are universal**, which is why our anomaly track, synthetic fraud injection, and generative augmentation are well-motivated rather than gimmicks.
+3. **Class imbalance and label scarcity are universal**, which is why the anomaly track, synthetic fraud injection, and generative augmentation are well-motivated rather than gimmicks.
 
 ## 5. Full reference list
 

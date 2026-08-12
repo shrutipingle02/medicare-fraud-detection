@@ -40,7 +40,7 @@ regenerable, so it is not committed. The `*_clean.parquet` IS shared via LFS; ru
 
 ## How labels are made
 
-Real claims data has no "fraud" column. We construct it by joining CMS to the LEIE
+Real claims data has no "fraud" column. It is constructed by joining CMS to the LEIE
 on **NPI**:
 
 - `excluded_any` = 1 if the provider is in the LEIE for any reason.

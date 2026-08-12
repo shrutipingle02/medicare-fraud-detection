@@ -5,11 +5,11 @@
 **Status:** Active build
 **Last updated:** June 2026
 
-> This is the canonical project document. Everything we build links back here. Update this file as decisions change, not your memory or scattered notes.
+> This is the canonical project document. Everything built here links back to it. Update this file as decisions change, not your memory or scattered notes.
 
 ---
 
-## 1. What Are We Building
+## 1. What Is Being Built
 
 A **Provider Fraud Risk Explorer**: an end-to-end workflow that takes raw healthcare claims data and produces a **ranked, explainable list of providers** most likely to be committing fraud, so a human investigator knows who to look at first and why.
 
@@ -25,7 +25,7 @@ The end product is something an analyst can open, see the top suspicious provide
 
 ---
 
-## 2. What Are We Going to Do (Scope)
+## 2. Scope
 
 ### In scope (v1)
 - Use the **labeled Kaggle Healthcare Provider Fraud Detection** dataset.
@@ -37,7 +37,7 @@ The end product is something an analyst can open, see the top suspicious provide
 ### Out of scope (for now)
 - Real-time scoring or production deployment.
 - Claim-level or patient-level detection.
-- Live PHI or real payer data (we use synthetic/public data only).
+- Live PHI or real payer data (synthetic/public data only).
 
 ### Parking lot (later phases)
 - Validate on a second dataset (NHIS, SynPUF) to test generalization.
@@ -51,10 +51,10 @@ The end product is something an analyst can open, see the top suspicious provide
 ### 3.1 The Objective
 Given a fixed investigator budget (they can only review the top few percent of providers), **make that small slice as dense with real fraud as possible, and explain every flag.**
 
-We are NOT trying to "detect all fraud." We are trying to **prioritize a limited worklist**. That reframing drives every technical choice.
+This is NOT an attempt to "detect all fraud." The aim is to **prioritize a limited worklist**. That reframing drives every technical choice.
 
 ### 3.2 Concrete End Results (Definition of Done)
-By the end, we will have:
+By the end, this will have:
 
 1. A **clean, provider-keyed dataset** joining claims + beneficiary + labels.
 2. A **feature set** of provider behavior and peer-relative metrics.
@@ -71,7 +71,7 @@ By the end, we will have:
 
 ---
 
-## 4. How Are We Going to Do It (Method)
+## 4. Method
 
 ### Phase A: Data Foundation
 - Load the four tables: beneficiary, inpatient claims, outpatient claims, provider labels.
@@ -106,7 +106,7 @@ Two layers. The second is what makes it work.
 ### Phase D: Evaluation
 | Metric | Answers | Priority |
 |---|---|---|
-| Precision at top-k (1/5/10%) | Of who we'd actually review, how many are real fraud? | Primary |
+| Precision at top-k (1/5/10%) | Of those actually reviewed, how many are real fraud? | Primary |
 | Precision / Recall (fraud) | How clean / complete are flags? | Supporting |
 | F1 | Balanced single number | Supporting |
 | ROC AUC | Overall ranking ability | Context |
@@ -147,7 +147,7 @@ Pick these up once v1 works. Each one is a strong portfolio upgrade.
 
 ## 7. Learning Outcomes
 
-What we will actually be able to say we can do after this:
+What this can actually claim by the end:
 
 - **Problem framing:** turn a vague goal ("find fraud") into the real constraint ("rank a fixed worklist").
 - **Claims data wrangling:** join multi-table healthcare claims into an analysis-ready provider view.
@@ -174,5 +174,5 @@ What we will actually be able to say we can do after this:
 - This file is the source of truth. Decisions get recorded here.
 - Conservative cleaning: never delete genuine outliers, they may be the fraud.
 - Provider level is the unit of everything: labels, features, scores, queue.
-- Top-k precision is the metric we optimize, not accuracy or AUC.
+- Top-k precision is the metric being optimized, not accuracy or AUC.
 - Every flag must be explainable, or it does not ship.

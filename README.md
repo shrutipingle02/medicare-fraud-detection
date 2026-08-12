@@ -14,22 +14,22 @@ CMS claims  ->  Label (LEIE)  ->  Clean  ->  Peer features  ->  Models  ->  Rank
 
 ## The idea
 
-We are not trying to "detect all fraud." Given a fixed investigator budget (only the top few percent of providers can ever be reviewed), the goal is to **make that small slice as dense with real fraud as possible, and explain every flag.** That reframing drives every technical choice, which is why the headline metric is **precision at top-k**, not accuracy or AUC.
+This is not an attempt to "detect all fraud." Given a fixed investigator budget (only the top few percent of providers can ever be reviewed), the goal is to **make that small slice as dense with real fraud as possible, and explain every flag.** That reframing drives every technical choice, which is why the headline metric is **precision at top-k**, not accuracy or AUC.
 
 The unit of everything (labels, features, scores, queue) is the **provider**.
 
 ## Data: real-world, not a toy dataset
 
-We build on **real US government data**, with no PHI:
+Built on **real US government data**, with no PHI:
 
 | Role | Source | What it is |
 |---|---|---|
 | **Features** | [CMS Medicare Physician & Other Practitioners - by Provider](https://data.cms.gov/provider-summary-by-type-of-service/medicare-physician-other-practitioners/medicare-physician-other-practitioners-by-provider) (Part B) | One row per provider (NPI) per year with real billing/utilization aggregates. ~1.2M providers/year. |
 | **Labels** | [OIG LEIE](https://oig.hhs.gov/exclusions/exclusions_list.asp) | Providers excluded from federal health programs. Joined on NPI to build the fraud label. |
 
-Real claims data has no "fraud" column, so we **construct the label** by joining CMS to the LEIE on NPI and keeping fraud-related exclusion types. Pooling **2019-2023** gives a **6.0M provider-year panel with 1,275 fraud provider-years (473 unique fraud providers)** - a ~0.02% fraud rate, the extreme imbalance this project is designed for. See [`data/README.md`](data/README.md) for full provenance.
+Real claims data has no "fraud" column, so the label is **constructed** by joining CMS to the LEIE on NPI and keeping fraud-related exclusion types. Pooling **2019-2023** gives a **6.0M provider-year panel with 1,275 fraud provider-years (473 unique fraud providers)** - a ~0.02% fraud rate, the extreme imbalance this project is designed for. See [`data/README.md`](data/README.md) for full provenance.
 
-> The original plan also referenced the Kaggle "Healthcare Provider Fraud Detection" set and CMS DE-SynPUF ([`SynPUF_DUG.pdf`](SynPUF_DUG.pdf)) as alternatives. We moved to CMS + LEIE for a defensible, real-world dataset.
+> The original plan also referenced the Kaggle "Healthcare Provider Fraud Detection" set and CMS DE-SynPUF ([`SynPUF_DUG.pdf`](SynPUF_DUG.pdf)) as alternatives. CMS + LEIE was chosen instead, for a defensible, real-world dataset.
 
 ## Pipeline
 
@@ -125,13 +125,13 @@ the trustworthy signals here.
 
 ### Beyond the baseline: two tracks, explainability, and the PU breakthrough
 
-**Positive-Unlabeled (PU) learning (our headline contribution).** The incomplete-label
+**Positive-Unlabeled (PU) learning (the headline contribution).** The incomplete-label
 problem is an opportunity. With positives + unlabeled and no true negatives, this is
 really a PU problem, not supervised classification. PU bagging (many models, each on
 all positives plus a fresh random sample of the unlabeled pool, averaged) beats a
 matched supervised baseline on the mean of every metric. Over **5 random splits** it
 wins **4 of 5** on top-1% recall, lifting it from ~15% to ~17% (a real, consistent,
-if modest, gain). We report the robust multi-seed number, not the lucky single seed.
+if modest, gain). The robust multi-seed number is reported, not the lucky single seed.
 
 **Unsupervised anomaly track (Isolation Forest).** A label-free detector that flags
 providers who look bizarre versus peers. With **zero labels** it catches **32% of
@@ -143,13 +143,13 @@ blend does not improve the prioritised worklist.
 drivers are the **charge-to-payment ratio** and **services per beneficiary**, classic
 over-billing and over-servicing signals (grounds the model in the right behaviour).
 
-**Honest negative result (nnPU).** We also implemented the principled neural PU method
+**Honest negative result (nnPU).** The principled neural PU method was also implemented
 (non-negative PU, Kiryo 2017). It underperforms the tree-based methods (ROC-AUC 0.69
 vs 0.82). The lesson: with only 944 positives on tabular data, gradient-boosted trees
-beat deep learning, so **PU bagging on trees remains our best approach**.
+beat deep learning, so **PU bagging on trees remains the best approach**.
 
 **Temporal trajectory features (new headline result).** Exploiting the 2019-2023
-panel, we add **leakage-safe, as-of** trajectory features per provider-year: the
+panel, this adds **leakage-safe, as-of** trajectory features per provider-year: the
 least-squares slope, coefficient of variation, and largest year-over-year jump of
 payment, services, beneficiaries, etc., each computed from *only that provider's own
 billing up to and including that year* (never the future). Added to the PU-bagging
@@ -162,16 +162,16 @@ tree model, over the same **5 grouped splits** they lift:
 | top-10% recall | 0.499 | **0.609** | +0.110 |
 | ROC-AUC | 0.807 | **0.859** | +0.051 |
 
-PU still wins 4/5 seeds. **We audited this large jump for leakage.** One feature,
+PU still wins 4/5 seeds. **This large jump was audited for leakage.** One feature,
 `traj_years` (years billed so far), separated the classes as a *panel-position*
 artifact: positives are gated to years at/before the exclusion year, so years-so-far
-leaks where a row sits in the panel, not behaviour (it scored solo ROC-AUC 0.72). We
-**dropped it**, and an ablation confirmed the lift *survives without it* (recall@1%
+leaks where a row sits in the panel, not behaviour (it scored solo ROC-AUC 0.72). It
+was **dropped**, and an ablation confirmed the lift *survives without it* (recall@1%
 0.31 -> 0.33 on the audit seed). The real signal is the behavioural shape, led by the
 **Medicare-payment trajectory slope** and **pay-per-beneficiary slope**. The table
 above is the post-audit, defensible number. See `src/diag_temporal_leakage.py`.
 
-**Weighted two-track fusion (honest null).** We swept the anomaly weight (0.00 to
+**Weighted two-track fusion (honest null).** The anomaly weight was swept (0.00 to
 0.50) on rank-normalised scores. Once the supervised ranker carries the trajectory
 features, **no weighted blend with the Isolation Forest beats supervised-alone on
 top-1%** (best weight = 0.00). The label-free track remains a useful independent
