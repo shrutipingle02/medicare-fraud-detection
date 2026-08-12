@@ -1,0 +1,402 @@
+[
+{
+"postal": "TX",
+"name": "Texas",
+"count": 197,
+"known": 4,
+"avgScore": 0.8778,
+"topType": "Nephrology"
+},
+{
+"postal": "CA",
+"name": "California",
+"count": 172,
+"known": 10,
+"avgScore": 0.8666,
+"topType": "Psychiatry"
+},
+{
+"postal": "MI",
+"name": "Michigan",
+"count": 164,
+"known": 3,
+"avgScore": 0.884,
+"topType": "Family Practice"
+},
+{
+"postal": "NY",
+"name": "New York",
+"count": 154,
+"known": 0,
+"avgScore": 0.8605,
+"topType": "Physical Therapist in Private Practice"
+},
+{
+"postal": "FL",
+"name": "Florida",
+"count": 145,
+"known": 0,
+"avgScore": 0.8643,
+"topType": "Family Practice"
+},
+{
+"postal": "IL",
+"name": "Illinois",
+"count": 109,
+"known": 7,
+"avgScore": 0.8769,
+"topType": "Clinical Laboratory"
+},
+{
+"postal": "NC",
+"name": "North Carolina",
+"count": 101,
+"known": 7,
+"avgScore": 0.8695,
+"topType": "Physician Assistant"
+},
+{
+"postal": "GA",
+"name": "Georgia",
+"count": 79,
+"known": 0,
+"avgScore": 0.8594,
+"topType": "Psychiatry"
+},
+{
+"postal": "PA",
+"name": "Pennsylvania",
+"count": 67,
+"known": 1,
+"avgScore": 0.8817,
+"topType": "Psychiatry"
+},
+{
+"postal": "TN",
+"name": "Tennessee",
+"count": 62,
+"known": 0,
+"avgScore": 0.8676,
+"topType": "Internal Medicine"
+},
+{
+"postal": "LA",
+"name": "Louisiana",
+"count": 57,
+"known": 0,
+"avgScore": 0.8683,
+"topType": "Family Practice"
+},
+{
+"postal": "KY",
+"name": "Kentucky",
+"count": 56,
+"known": 0,
+"avgScore": 0.8672,
+"topType": "Internal Medicine"
+},
+{
+"postal": "OK",
+"name": "Oklahoma",
+"count": 48,
+"known": 0,
+"avgScore": 0.8812,
+"topType": "Family Practice"
+},
+{
+"postal": "OH",
+"name": "Ohio",
+"count": 43,
+"known": 4,
+"avgScore": 0.8676,
+"topType": "Family Practice"
+},
+{
+"postal": "MD",
+"name": "Maryland",
+"count": 39,
+"known": 0,
+"avgScore": 0.8664,
+"topType": "Nurse Practitioner"
+},
+{
+"postal": "IN",
+"name": "Indiana",
+"count": 38,
+"known": 0,
+"avgScore": 0.8707,
+"topType": "Family Practice"
+},
+{
+"postal": "MA",
+"name": "Massachusetts",
+"count": 38,
+"known": 0,
+"avgScore": 0.8583,
+"topType": "Psychiatry"
+},
+{
+"postal": "NJ",
+"name": "New Jersey",
+"count": 34,
+"known": 0,
+"avgScore": 0.8549,
+"topType": "Family Practice"
+},
+{
+"postal": "MO",
+"name": "Missouri",
+"count": 33,
+"known": 0,
+"avgScore": 0.8764,
+"topType": "Psychiatry"
+},
+{
+"postal": "VA",
+"name": "Virginia",
+"count": 32,
+"known": 0,
+"avgScore": 0.8618,
+"topType": "Family Practice"
+},
+{
+"postal": "AZ",
+"name": "Arizona",
+"count": 29,
+"known": 0,
+"avgScore": 0.8643,
+"topType": "Internal Medicine"
+},
+{
+"postal": "AL",
+"name": "Alabama",
+"count": 26,
+"known": 0,
+"avgScore": 0.8832,
+"topType": "Internal Medicine"
+},
+{
+"postal": "WV",
+"name": "West Virginia",
+"count": 21,
+"known": 0,
+"avgScore": 0.891,
+"topType": "Family Practice"
+},
+{
+"postal": "SC",
+"name": "South Carolina",
+"count": 21,
+"known": 0,
+"avgScore": 0.8605,
+"topType": "Psychiatry"
+},
+{
+"postal": "CT",
+"name": "Connecticut",
+"count": 20,
+"known": 0,
+"avgScore": 0.8839,
+"topType": "Anesthesiology"
+},
+{
+"postal": "WI",
+"name": "Wisconsin",
+"count": 19,
+"known": 0,
+"avgScore": 0.8571,
+"topType": "Chiropractic"
+},
+{
+"postal": "NV",
+"name": "Nevada",
+"count": 16,
+"known": 0,
+"avgScore": 0.9007,
+"topType": "General Surgery"
+},
+{
+"postal": "CO",
+"name": "Colorado",
+"count": 16,
+"known": 0,
+"avgScore": 0.874,
+"topType": "Clinical Laboratory"
+},
+{
+"postal": "WA",
+"name": "Washington",
+"count": 16,
+"known": 0,
+"avgScore": 0.8399,
+"topType": "Family Practice"
+},
+{
+"postal": "IA",
+"name": "Iowa",
+"count": 15,
+"known": 0,
+"avgScore": 0.8493,
+"topType": "Ophthalmology"
+},
+{
+"postal": "UT",
+"name": "Utah",
+"count": 14,
+"known": 0,
+"avgScore": 0.8923,
+"topType": "Anesthesiology"
+},
+{
+"postal": "MS",
+"name": "Mississippi",
+"count": 13,
+"known": 0,
+"avgScore": 0.8715,
+"topType": "Physical Therapist in Private Practice"
+},
+{
+"postal": "AR",
+"name": "Arkansas",
+"count": 13,
+"known": 0,
+"avgScore": 0.8739,
+"topType": "Cardiology"
+},
+{
+"postal": "MN",
+"name": "Minnesota",
+"count": 13,
+"known": 0,
+"avgScore": 0.8425,
+"topType": "Gastroenterology"
+},
+{
+"postal": "OR",
+"name": "Oregon",
+"count": 10,
+"known": 0,
+"avgScore": 0.8815,
+"topType": "Ophthalmology"
+},
+{
+"postal": "KS",
+"name": "Kansas",
+"count": 9,
+"known": 0,
+"avgScore": 0.8689,
+"topType": "Family Practice"
+},
+{
+"postal": "DE",
+"name": "Delaware",
+"count": 7,
+"known": 0,
+"avgScore": 0.8904,
+"topType": "Internal Medicine"
+},
+{
+"postal": "PR",
+"name": "Puerto Rico",
+"count": 7,
+"known": 0,
+"avgScore": 0.8711,
+"topType": "Internal Medicine"
+},
+{
+"postal": "ME",
+"name": "Maine",
+"count": 7,
+"known": 0,
+"avgScore": 0.8615,
+"topType": "Clinical Laboratory"
+},
+{
+"postal": "DC",
+"name": "District of Columbia",
+"count": 6,
+"known": 0,
+"avgScore": 0.8508,
+"topType": "Nurse Practitioner"
+},
+{
+"postal": "NE",
+"name": "Nebraska",
+"count": 5,
+"known": 0,
+"avgScore": 0.8551,
+"topType": "Nurse Practitioner"
+},
+{
+"postal": "NM",
+"name": "New Mexico",
+"count": 5,
+"known": 0,
+"avgScore": 0.8794,
+"topType": "Family Practice"
+},
+{
+"postal": "HI",
+"name": "Hawaii",
+"count": 4,
+"known": 0,
+"avgScore": 0.8904,
+"topType": "Podiatry"
+},
+{
+"postal": "VT",
+"name": "Vermont",
+"count": 4,
+"known": 0,
+"avgScore": 0.8732,
+"topType": "Clinical Laboratory"
+},
+{
+"postal": "SD",
+"name": "South Dakota",
+"count": 4,
+"known": 0,
+"avgScore": 0.8379,
+"topType": "Rheumatology"
+},
+{
+"postal": "NH",
+"name": "New Hampshire",
+"count": 3,
+"known": 0,
+"avgScore": 0.901,
+"topType": "Family Practice"
+},
+{
+"postal": "ID",
+"name": "Idaho",
+"count": 3,
+"known": 0,
+"avgScore": 0.8409,
+"topType": "Nurse Practitioner"
+},
+{
+"postal": "RI",
+"name": "Rhode Island",
+"count": 3,
+"known": 0,
+"avgScore": 0.8524,
+"topType": "Internal Medicine"
+},
+{
+"postal": "MT",
+"name": "Montana",
+"count": 2,
+"known": 0,
+"avgScore": 0.8531,
+"topType": "Physician Assistant"
+},
+{
+"postal": "ND",
+"name": "North Dakota",
+"count": 1,
+"known": 0,
+"avgScore": 0.8221,
+"topType": "Physical Medicine and Rehabilitation"
+}
+]

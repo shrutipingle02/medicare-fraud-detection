@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Office temp/lock files
+~$*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Agent tooling (caveman skill install) - local only, not project content
+.agents/
+skills-lock.json
+
+# Model binaries (regenerable); keep the metrics summary as a result record
+models/*.joblib
+models/*.json
+!models/metrics.json
+!models/pu_metrics.json
+!models/anomaly_metrics.json
+!models/shap_explanations.json
+!models/nnpu_metrics.json
+
+# Build scripts and generated figures (excluded from repo)
+build_charts.py
+build_docs.py
+build_illustrations.py
+figures/
+
+# Data: ignore the raw CMS CSVs and the full model-ready panels. All of it is
+# regenerable from src/ (see data/README.md). Samples below are committed so the
+# schema is readable without downloading anything.
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+!data/raw/LEIE_exclusions.csv
+!data/processed/provider_fraud_2023_sample.csv
+!data/processed/provider_year_panel_2019_2023_sample.csv
+cms_catalog.json

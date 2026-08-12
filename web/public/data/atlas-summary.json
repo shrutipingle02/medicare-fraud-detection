@@ -1,0 +1,169 @@
+{
+"kpis": {
+"total": 2000,
+"known": 36,
+"avgScore": 0.8703,
+"states": 50,
+"types": 67
+},
+"topTypes": [
+{
+"type": "Family Practice",
+"count": 322
+},
+{
+"type": "Internal Medicine",
+"count": 274
+},
+{
+"type": "Psychiatry",
+"count": 173
+},
+{
+"type": "Nurse Practitioner",
+"count": 130
+},
+{
+"type": "Clinical Laboratory",
+"count": 111
+},
+{
+"type": "Anesthesiology",
+"count": 108
+},
+{
+"type": "Physician Assistant",
+"count": 93
+},
+{
+"type": "Nephrology",
+"count": 73
+}
+],
+"scoreHist": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1458,
+542
+],
+"topProviders": [
+{
+"rank": 1,
+"type": "Licensed Clinical Social Worker",
+"state": "MI",
+"score": 0.9899,
+"known": 0,
+"payPerBene": 2901.0
+},
+{
+"rank": 2,
+"type": "Licensed Clinical Social Worker",
+"state": "MI",
+"score": 0.9886,
+"known": 0,
+"payPerBene": 1989.0
+},
+{
+"rank": 3,
+"type": "Clinical Laboratory",
+"state": "IL",
+"score": 0.986,
+"known": 0,
+"payPerBene": 93.0
+},
+{
+"rank": 4,
+"type": "Clinical Laboratory",
+"state": "IL",
+"score": 0.9845,
+"known": 0,
+"payPerBene": 97.0
+},
+{
+"rank": 5,
+"type": "Family Practice",
+"state": "OK",
+"score": 0.9841,
+"known": 0,
+"payPerBene": 156.0
+},
+{
+"rank": 6,
+"type": "Clinical Laboratory",
+"state": "TX",
+"score": 0.9841,
+"known": 0,
+"payPerBene": 94.0
+},
+{
+"rank": 7,
+"type": "Family Practice",
+"state": "FL",
+"score": 0.9818,
+"known": 0,
+"payPerBene": 5773.0
+},
+{
+"rank": 8,
+"type": "Licensed Clinical Social Worker",
+"state": "MI",
+"score": 0.9806,
+"known": 0,
+"payPerBene": 986.0
+},
+{
+"rank": 9,
+"type": "Clinical Laboratory",
+"state": "CA",
+"score": 0.98,
+"known": 0,
+"payPerBene": 201.0
+},
+{
+"rank": 10,
+"type": "Family Practice",
+"state": "LA",
+"score": 0.9796,
+"known": 0,
+"payPerBene": 186.0
+},
+{
+"rank": 11,
+"type": "Licensed Clinical Social Worker",
+"state": "MI",
+"score": 0.9783,
+"known": 0,
+"payPerBene": 659.0
+},
+{
+"rank": 12,
+"type": "Family Practice",
+"state": "NJ",
+"score": 0.9772,
+"known": 0,
+"payPerBene": 2.0
+},
+{
+"rank": 13,
+"type": "Physician Assistant",
+"state": "CA",
+"score": 0.9765,
+"known": 0,
+"payPerBene": 1434.0
+},
+{
+"rank": 14,
+"type": "Pharmacy",
+"state": "OK",
+"score": 0.9764,
+"known": 0,
+"payPerBene": 413.0
+}
+]
+}
