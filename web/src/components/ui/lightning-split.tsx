@@ -212,6 +212,17 @@ export function Component({ rightComponent, leftComponent }: DiagonalSliderProps
     const [time, setTime] = useState(0)
     const [hovering, setHovering] = useState(false)
 
+    // Read the viewport only after mount. Reading window during render makes the
+    // server (which has no window, so falls back to 1920x1080) and the client
+    // disagree, which React reports as a hydration mismatch.
+    const [viewport, setViewport] = useState({ width: 1920, height: 1080 })
+    useEffect(() => {
+        const sync = () => setViewport({ width: window.innerWidth, height: window.innerHeight })
+        sync()
+        window.addEventListener('resize', sync)
+        return () => window.removeEventListener('resize', sync)
+    }, [])
+
     // Only animate while the user is interacting (or settling back). When idle
     // the loop stops entirely, so this never re-renders or churns the GPU off-screen.
     useEffect(() => {
@@ -284,8 +295,8 @@ export function Component({ rightComponent, leftComponent }: DiagonalSliderProps
 
     const x1 = position
     const x2 = Math.max(0, Math.min(100, position - 25))
-    const containerWidth = typeof window !== 'undefined' ? window.innerWidth : 1920
-    const containerHeight = typeof window !== 'undefined' ? window.innerHeight : 1080
+    const containerWidth = viewport.width
+    const containerHeight = viewport.height
 
     const realX1 = (x1 / 100) * containerWidth
     const realY1 = 0
