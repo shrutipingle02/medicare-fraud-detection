@@ -38,21 +38,49 @@ Everything is reproducible from `src/`:
 ```bash
 pip install -r requirements.txt
 
+P=data/processed/provider_year_panel_2019_2023
+
 # 1. Download CMS Part B (per year) + OIG LEIE into data/raw/
 for y in 2019 2020 2021 2022 2023; do python src/download_data.py --year $y; done
 
-# 2. Join CMS + LEIE into a labeled provider-year panel
+# 2. Join CMS + LEIE into a labeled provider-year panel  -> $P.parquet
 python src/build_dataset.py --pool 2019,2020,2021,2022,2023
 
-# 3. Quality-check + conservative cleaning + Layer 1 ratio features
-python src/prepare_data.py --in data/processed/provider_year_panel_2019_2023_clean.parquet  # see note
+# 3. Quality-check + conservative cleaning + Layer 1 ratio features  -> ${P}_clean.parquet
+python src/prepare_data.py --in $P.parquet
 
-# 4. Layer 2 peer-relative features (z-score / percentile / peer-median ratio)
-python src/build_features.py --in data/processed/provider_year_panel_2019_2023_clean.parquet
+# 4. Layer 2 peer-relative features (z-score / percentile / peer-median ratio)  -> ${P}_features.parquet
+python src/build_features.py --in ${P}_clean.parquet
 
-# 5. Train + evaluate the supervised models (top-k precision)
-python src/train_model.py --in data/processed/provider_year_panel_2019_2023_features.parquet
+# 5. Provider trajectory features (trend, volatility, YoY jumps)  -> ${P}_features_temporal.parquet
+#    Required for the headline result. Without it you get the pre-temporal
+#    baseline (top-1% recall 0.169), not 0.290.
+python src/build_temporal_features.py --in ${P}_features.parquet
+
+# 6. Train + evaluate the supervised models (top-k precision).
+#    Run both to reproduce the +72% temporal comparison.
+python src/train_model.py --in ${P}_features.parquet           # baseline: ROC 0.807
+python src/train_model.py --in ${P}_features_temporal.parquet  # with temporal: ROC 0.859
+
+# 7. PU bagging A/B vs the supervised baseline, five seeds
+python src/train_pu.py --in ${P}_features_temporal.parquet --seeds 42,1,7,13,99
+
+# 8. Unsupervised Isolation Forest track + two-track combination
+python src/train_anomaly.py --in ${P}_features_temporal.parquet
+
+# 9. Neural non-negative PU (Kiryo 2017). Needs torch.
+python src/train_nnpu.py --in ${P}_features_temporal.parquet
+
+# 10. SHAP global importance + per-provider reasons
+python src/explain_shap.py --in ${P}_features_temporal.parquet
+
+# 11. Score providers and export the ranked worklist into web/public/data/
+python src/score_providers.py --in ${P}_features_temporal.parquet
 ```
+
+Every script takes its defaults from the flags shown above. The PU, anomaly and
+scoring scripts share `--bags 15 --neg-ratio 10 --seed 42`; changing those changes
+the reported metrics, so keep them fixed when comparing runs.
 
 | Script | Does |
 |---|---|
